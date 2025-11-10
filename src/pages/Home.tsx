@@ -56,12 +56,16 @@ const Home = () => {
         {/* Services Grid */}
         <section className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Service 1: Loading and Unloading */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                <img src={sklad1} alt="" />
+            {/* Service 1 */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+              <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                <img
+                  src={sklad1}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-blue-700 mb-3">
                   All types of loading and unloading operations
                 </h3>
@@ -87,12 +91,16 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Service 2: Address Storage */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                <img src={sklad2} alt="" />
+            {/* Service 2 */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+              <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                <img
+                  src={sklad2}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-blue-700 mb-3">
                   Address storage using modern racking equipment
                 </h3>
@@ -115,20 +123,22 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Service 3: Mechanized Docking */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                <img src={sklad3} alt="" />
+            {/* Service 3 */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+              <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                <img
+                  src={sklad3}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-blue-700 mb-3">
                   Mechanized docking system
                 </h3>
                 <p className="text-gray-600 text-sm mb-4">
                   We organize cross-docking—the rapid transfer of goods from
-                  incoming to outgoing shipments without long-term storage. This
-                  speeds up logistics, reduces warehouse costs, and preserves
-                  product freshness.
+                  incoming to outgoing shipments without long-term storage.
                 </p>
                 <div className="mt-4">
                   <p className="font-semibold text-gray-700 mb-2">
@@ -146,12 +156,16 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Service 4: Packaging and Sorting */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-42 bg-gradient-to-br flex items-center justify-center">
-                <img src={sklad4} alt="" />
+            {/* Service 4 */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+              <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                <img
+                  src={sklad4}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-blue-700 mb-3">
                   Packaging, sorting, rejection
                 </h3>
@@ -161,8 +175,7 @@ const Home = () => {
                 </p>
                 <p className="text-gray-600 text-sm mb-4">
                   Our specialists ensure visual inspection, assembly, and
-                  preparation of products for shipment, taking into account
-                  customer requirements and regulations.
+                  preparation of products for shipment.
                 </p>
                 <div className="mt-4">
                   <p className="font-semibold text-gray-700 mb-2">
@@ -183,8 +196,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
-
 
         <a
           href="https://wa.me/79172212144"
