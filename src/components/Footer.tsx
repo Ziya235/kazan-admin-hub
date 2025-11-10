@@ -1,5 +1,6 @@
 import { Package, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/Logo.webp";
 
 const Footer = () => {
   return (
@@ -9,11 +10,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <Package className="w-6 h-6" />
+              <img src={logo} alt="" width="36px" height="36px" />
               <span className="text-xl font-bold">Kazan Warehouse</span>
             </div>
             <p className="text-sm text-primary-foreground/80">
-              Your trusted partner for professional warehouse and logistics solutions.
+              Your trusted partner for professional warehouse and logistics
+              solutions.
             </p>
           </div>
 
@@ -27,12 +29,26 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-accent transition-colors">
+                <Link
+                  to="/services"
+                  className="hover:text-accent transition-colors"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-accent transition-colors">
+                <Link
+                  to="/about"
+                  className="hover:text-accent transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="hover:text-accent transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -56,22 +72,31 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span className="text-primary-foreground/80">Kazan, Russia</span>
+                <span className="text-primary-foreground/80">
+                  Kazan, Russia
+                </span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="text-primary-foreground/80">+7 (XXX) XXX-XX-XX</span>
+                <span className="text-primary-foreground/80">
+                  +7 917 221 21 44
+                </span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span className="text-primary-foreground/80">info@kazanwarehouse.com</span>
+                <span className="text-primary-foreground/80">
+                  info@kazanwarehouse.com
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Kazan Warehouse. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Kazan Warehouse. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>

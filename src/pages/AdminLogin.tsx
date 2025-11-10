@@ -115,10 +115,10 @@ const AdminLogin = () => {
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="login" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
+            {/* <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="login">Login</TabsTrigger>
               <TabsTrigger value="signup">Sign Up</TabsTrigger>
-            </TabsList>
+            </TabsList> */}
 
             <TabsContent value="login">
               <form onSubmit={handleLogin} className="space-y-4">
@@ -150,7 +150,7 @@ const AdminLogin = () => {
               </form>
             </TabsContent>
 
-            <TabsContent value="signup">
+            {/* <TabsContent value="signup">
               <form onSubmit={handleSignup} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="signup-name">Full Name</Label>
@@ -193,7 +193,7 @@ const AdminLogin = () => {
                   Note: Admin role must be assigned by another admin
                 </p>
               </form>
-            </TabsContent>
+            </TabsContent> */}
           </Tabs>
 
           <div className="mt-6 text-center">

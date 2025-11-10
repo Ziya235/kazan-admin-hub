@@ -64,7 +64,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section className="py-10">
         <div className="container mx-auto px-4">
           {isLoading ? (
             <div className="flex justify-center items-center min-h-[400px]">
