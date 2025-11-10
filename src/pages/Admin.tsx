@@ -24,6 +24,8 @@ const Admin = () => {
     description: "",
     image_url: "",
   });
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [uploadingImage, setUploadingImage] = useState(false);
 
   useEffect(() => {
     checkUser();
@@ -80,8 +82,39 @@ const Admin = () => {
   });
 
   const addServiceMutation = useMutation({
-    mutationFn: async (service: typeof newService) => {
-      const { data, error } = await supabase.from("services").insert([service]).select();
+    mutationFn: async (service: typeof newService & { imageFile?: File | null }) => {
+      let imageUrl = service.image_url;
+
+      // Upload image if file is provided
+      if (service.imageFile) {
+        setUploadingImage(true);
+        const fileExt = service.imageFile.name.split('.').pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const filePath = `${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('service-images')
+          .upload(filePath, service.imageFile);
+
+        if (uploadError) {
+          setUploadingImage(false);
+          throw uploadError;
+        }
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('service-images')
+          .getPublicUrl(filePath);
+
+        imageUrl = publicUrl;
+        setUploadingImage(false);
+      }
+
+      const { data, error } = await supabase.from("services").insert([{
+        title: service.title,
+        description: service.description,
+        image_url: imageUrl,
+      }]).select();
+      
       if (error) throw error;
       return data;
     },
@@ -93,6 +126,7 @@ const Admin = () => {
         description: "Service added successfully",
       });
       setNewService({ title: "", description: "", image_url: "" });
+      setImageFile(null);
     },
     onError: (error) => {
       toast({
@@ -142,7 +176,7 @@ const Admin = () => {
       });
       return;
     }
-    addServiceMutation.mutate(newService);
+    addServiceMutation.mutate({ ...newService, imageFile });
   };
 
   if (loading) {
@@ -206,22 +240,30 @@ const Admin = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="image_url">Image URL</Label>
+                  <Label htmlFor="image">Service Image</Label>
                   <Input
-                    id="image_url"
-                    value={newService.image_url}
-                    onChange={(e) =>
-                      setNewService({ ...newService, image_url: e.target.value })
-                    }
-                    placeholder="https://example.com/image.jpg"
+                    id="image"
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        setImageFile(file);
+                      }
+                    }}
                   />
+                  {imageFile && (
+                    <p className="text-sm text-muted-foreground">
+                      Selected: {imageFile.name}
+                    </p>
+                  )}
                 </div>
                 <Button
                   type="submit"
-                  disabled={addServiceMutation.isPending}
+                  disabled={addServiceMutation.isPending || uploadingImage}
                   className="w-full"
                 >
-                  {addServiceMutation.isPending ? "Adding..." : "Add Service"}
+                  {uploadingImage ? "Uploading Image..." : addServiceMutation.isPending ? "Adding..." : "Add Service"}
                 </Button>
               </form>
             </CardContent>
