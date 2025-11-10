@@ -78,15 +78,21 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="text-primary-foreground/80">
+                <a
+                  href="tel:+79172212144"
+                  className="text-primary-foreground/80 hover:underline"
+                >
                   +7 917 221 21 44
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span className="text-primary-foreground/80">
+                <a
+                  href="mailto:info@kazanwarehouse.com"
+                  className="text-primary-foreground/80 hover:underline"
+                >
                   info@kazanwarehouse.com
-                </span>
+                </a>
               </li>
             </ul>
           </div>

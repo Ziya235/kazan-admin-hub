@@ -140,9 +140,13 @@ const Contact = () => {
                         <Phone className="w-6 h-6 text-primary" />
                       </div>
                       <h3 className="font-semibold">Phone</h3>
-                      <p className="text-sm text-muted-foreground">
+
+                      <a
+                        href="tel:+79172212144"
+                        className="text-sm text-muted-foreground"
+                      >
                         +7 917 221 21 44
-                      </p>
+                      </a>
                     </div>
                   </CardContent>
                 </Card>
@@ -154,9 +158,13 @@ const Contact = () => {
                         <Mail className="w-6 h-6 text-primary" />
                       </div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="text-sm text-muted-foreground">
-                        info@kazansklad.ru
-                      </p>
+
+                      <a
+                        href="mailto:info@kazanwarehouse.com"
+                        className="text-sm text-muted-foreground"
+                      >
+                        info@kazanwarehouse.com
+                      </a>
                     </div>
                   </CardContent>
                 </Card>
