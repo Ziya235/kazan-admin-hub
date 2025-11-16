@@ -113,10 +113,10 @@
   "contact": {
     "title": "Contact Us",
     "subtitle": "Get in touch with our team for inquiries about our services",
-    "adress" : "Adress",
-    "phone" : "Phone",
-    "email" : "Email",
-    "place" : " Republic of Tatarstan, Pestrechinsky municipal district, Shalinskoye rural settlement, Industrial Park M7 Shali, land plot 1.",
+    "adress": "Adress",
+    "phone": "Phone",
+    "email": "Email",
+    "place": " Republic of Tatarstan, Pestrechinsky municipal district, Shalinskoye rural settlement, Industrial Park M7 Shali, land plot 1.",
     "form": {
       "title": "Send us a message",
       "fields": {
@@ -173,5 +173,22 @@
       "email": "info@kazanwarehouse.com"
     },
     "copyright": "&copy; {{year}} Kazan Warehouse. All rights reserved."
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "logout": "Logout",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe the service...",
+    "serviceTitle": "Service Title",
+    "serviceTitlePlaceholder": "e.g., Cold Storage Solutions",
+    "serviceImage": "Service Image",
+    "addService": "Add Service",
+    "uploadingImage": "Uploading Image...",
+    "adding": "Adding...",
+    "errors": {
+      "titleRequired": "Service title is required",
+      "descriptionRequired": "Description is required",
+      "imageRequired": "Service image is required"
+    }
   }
 }
