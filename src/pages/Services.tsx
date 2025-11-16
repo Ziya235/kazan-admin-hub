@@ -7,6 +7,7 @@ import { Loader2 } from "lucide-react";
 import logisticsImage from "@/assets/logistics-service.jpg";
 import storageImage from "@/assets/storage-service.jpg";
 import distributionImage from "@/assets/distribution-service.jpg";
+import { useTranslation } from "react-i18next";
 
 const Services = () => {
   const { data: services, isLoading } = useQuery({
@@ -47,7 +48,10 @@ const Services = () => {
     },
   ];
 
-  const displayServices = services && services.length > 0 ? services : defaultServices;
+  const { t } = useTranslation();
+
+  const displayServices =
+    services && services.length > 0 ? services : defaultServices;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -56,9 +60,12 @@ const Services = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-primary/10 to-background">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            {" "}
+            {t("services.title")}
+          </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive warehouse and logistics solutions tailored to your business needs
+            {t("services.subtitle")}
           </p>
         </div>
       </section>

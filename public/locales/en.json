@@ -1,0 +1,177 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact",
+    "admin": "Admin",
+    "warehouse": "Kazan Warehouse"
+  },
+  "home": {
+    "hero": {
+      "title": "Professional Warehouse Solutions",
+      "subtitle": "Efficient storage, reliable logistics, and comprehensive distribution services for your business needs",
+      "exploreServices": "Explore Services",
+      "contactUs": "Contact Us"
+    },
+    "mainPart": {
+      "title": "Welcome to Kazan Warehouse",
+      "subtitle": "We provide modern solutions in the field of responsible storage in a warehouse.",
+      "services": {
+        "service-1": {
+          "title": "All types of loading and unloading operations",
+          "desc-1": "We perform a full range of loading and unloading services using both manual labor and specialized equipment.",
+          "desc-2": "Our team ensures fast, safe, and accurate handling of goods during receiving, shipping, and movement.",
+          "desc-3": "We handle any packaging: pallets, boxes, and individual items.",
+          "desc-4": "The temperature regime is maintained at all stages of unloading.",
+          "desc-5": "Operations are carried out using reach trucks, hydraulic carts and other modern equipment."
+        },
+        "service-2": {
+          "title": "Address storage using modern racking equipment",
+          "desc-1": "We offer targeted warehousing using multi-tier shelving systems. This approach ensures quick access to each item and maximum efficiency of warehouse space.",
+          "advantages-title": "✓ Advantages",
+          "adv-1": "Multi-level metal shelving",
+          "adv-2": "Party delineation and space optimization",
+          "adv-3": "Possibility of piece and pallet accounting",
+          "adv-4": "Accounting by expiration dates and series"
+        },
+        "service-3": {
+          "title": "Mechanized docking system",
+          "desc-1": "We organize cross-docking—the rapid transfer of goods from incoming to outgoing shipments without long-term storage.",
+          "features-title": "✓ Features of our system",
+          "feat-1": "Mechanized and manual cargo handling",
+          "feat-2": "Movement between zones without intermediate storage",
+          "feat-3": "Processing of consignments within 24 hours",
+          "feat-4": "Minimizing transport downtime and reducing costs"
+        },
+        "service-4": {
+          "title": "Packaging, sorting, rejection",
+          "desc-1": "We provide a full range of services for packaging, sorting, and culling goods.",
+          "desc-2": "Our specialists ensure visual inspection, assembly, and preparation of products for shipment.",
+          "includes-title": "⚙ Includes:",
+          "inc-1": "Checking the integrity, markings and quality of packaging",
+          "inc-2": "Sorting products manually and using machinery",
+          "inc-3": "Identification and removal of defective or expired goods"
+        }
+      },
+      "advantages": {
+        "title": "Why Choose Kazan Warehouse?",
+        "subtitle": "Industry-leading warehouse solutions backed by years of experience",
+        "features": {
+          "feature-1": {
+            "title": "Secure Storage",
+            "description": "State-of-the-art warehouse facilities with 24/7 security monitoring"
+          },
+          "feature-2": {
+            "title": "Fast Logistics",
+            "description": "Efficient distribution network ensuring timely deliveries"
+          },
+          "feature-3": {
+            "title": "Inventory Management",
+            "description": "Advanced tracking systems for real-time inventory control"
+          },
+          "feature-4": {
+            "title": "Insured Services",
+            "description": "Comprehensive insurance coverage for your peace of mind"
+          }
+        }
+      },
+      "cta": {
+        "title": "Ready to Optimize Your Supply Chain?",
+        "subtitle": "Let's discuss how our warehouse solutions can benefit your business",
+        "button": "Get in Touch"
+      }
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive warehouse and logistics solutions tailored to your business needs"
+  },
+  "gallery": {
+    "title": "Warehouse Gallery",
+    "subtitle": "Explore our warehouse facilities, equipment, and infrastructure through images and videos."
+  },
+  "about": {
+    "title": "About the Company",
+    "greeting": "Dear partners and future clients!",
+    "intro-1": "Welcome on behalf of our company specializing in secure storage. We are pleased to announce a major expansion of our capabilities and the start of construction on a modern 2.5-hectare warehouse complex.",
+    "intro-2": "The first phase of construction is a freezer warehouse with temperatures ranging from -18°C to -25°C. The second phase is a general-purpose warehouse without temperature control.",
+    "intro-3": "We are confident that our new warehouse complex will be a reliable and efficient solution for your business. We invite you to collaborate!",
+
+    "logisticsTitle": "Infrastructure and Logistics Advantages",
+    "logistics-1": "Our company is located in the M-7 Shali Industrial Park, one of the largest industrial clusters in the region, covering a total area of 34.5 hectares. The park is designed to accommodate commercial and industrial facilities and features a perimeter fence, a secure area, and 24-hour access control through a checkpoint.",
+    "logistics-2": "The warehouse complex is located on the first line of the M-7 federal highway, providing excellent access and efficient logistics. The site is located at the intersection of important transportation routes:",
+    "routes": [
+      "Moscow - Ufa",
+      "Kazan - Naberezhnye Chelny",
+      "Kazan - Chistopol"
+    ],
+    "logistics-3": "The new M-12 \"Vostok\" toll road runs nearby, and the Moscow-Beijing highway is also being designed, which significantly increases the strategic importance of this logistics hub.",
+    "logistics-4": "The site also has all the necessary communications and the possibility of further infrastructure expansion."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team for inquiries about our services",
+    "adress" : "Adress",
+    "phone" : "Phone",
+    "email" : "Email",
+    "place" : " Republic of Tatarstan, Pestrechinsky municipal district, Shalinskoye rural settlement, Industrial Park M7 Shali, land plot 1.",
+    "form": {
+      "title": "Send us a message",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "John"
+        },
+        "surname": {
+          "label": "Surname",
+          "placeholder": "Doe"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "john@example.com"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "+7 (XXX) XXX-XX-XX"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us about your warehouse needs..."
+        }
+      },
+      "submit": {
+        "sending": "Sending...",
+        "default": "Send Message"
+      }
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "Kazan Warehouse",
+      "description": "Your trusted partner for professional warehouse and logistics solutions."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "services": {
+      "title": "Our Services",
+      "service-1": "Warehouse Storage",
+      "service-2": "Logistics Management",
+      "service-3": "Distribution Services",
+      "service-4": "Inventory Solutions"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "Kazan, Russia",
+      "phone": "+7 917 221 21 44",
+      "email": "info@kazanwarehouse.com"
+    },
+    "copyright": "&copy; {{year}} Kazan Warehouse. All rights reserved."
+  }
+}

@@ -8,47 +8,33 @@ import sklad1 from "@/assets/sklad1.webp";
 import sklad2 from "@/assets/sklad2.webp";
 import sklad3 from "@/assets/sklad3.webp";
 import sklad4 from "@/assets/sklad4.webp";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
   const features = [
-    {
-      icon: Package,
-      title: "Secure Storage",
-      description:
-        "State-of-the-art warehouse facilities with 24/7 security monitoring",
-    },
-    {
-      icon: Truck,
-      title: "Fast Logistics",
-      description: "Efficient distribution network ensuring timely deliveries",
-    },
-    {
-      icon: BarChart3,
-      title: "Inventory Management",
-      description: "Advanced tracking systems for real-time inventory control",
-    },
-    {
-      icon: Shield,
-      title: "Insured Services",
-      description: "Comprehensive insurance coverage for your peace of mind",
-    },
+    { icon: Package, key: "feature-1" },
+    { icon: Truck, key: "feature-2" },
+    { icon: BarChart3, key: "feature-3" },
+    { icon: Shield, key: "feature-4" },
   ];
 
+  const desc = t("home.mainPart.services.service-1.desc", {
+    returnObjects: true,
+  }) as string[];
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
       <Hero />
 
       <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
         <section className="bg-white py-12">
           <div className="max-w-7xl mx-auto px-4">
             <h1 className="text-4xl font-bold text-blue-700 text-center mb-4">
-              Welcome to Kazan Warehouse
+              {t("home.mainPart.title")}
             </h1>
             <p className="text-center text-gray-600 text-lg">
-              We provide modern solutions in the field of responsible storage in
-              a warehouse.
+              {t("home.mainPart.subtitle")}
             </p>
           </div>
         </section>
@@ -61,32 +47,29 @@ const Home = () => {
               <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
                 <img
                   src={sklad1}
-                  alt=""
+                  alt="warehouse"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-blue-700 mb-3">
-                  All types of loading and unloading operations
+                  {t("home.mainPart.services.service-1.title")}
                 </h3>
+
                 <p className="text-gray-600 text-sm mb-4">
-                  We perform a full range of loading and unloading services
-                  using both manual labor and specialized equipment.
+                  {t("home.mainPart.services.service-1.desc-1")}
                 </p>
                 <p className="text-gray-600 text-sm mb-4">
-                  Our team ensures fast, safe, and accurate handling of goods
-                  during receiving, shipping, and movement.
+                  {t("home.mainPart.services.service-1.desc-2")}
                 </p>
                 <p className="text-gray-600 text-sm mb-4">
-                  We handle any packaging: pallets, boxes, and individual items.
+                  {t("home.mainPart.services.service-1.desc-3")}
                 </p>
                 <p className="text-gray-600 text-sm mb-4">
-                  The temperature regime is maintained at all stages of
-                  unloading.
+                  {t("home.mainPart.services.service-1.desc-4")}
                 </p>
                 <p className="text-gray-600 text-sm">
-                  Operations are carried out using reach trucks, hydraulic carts
-                  and other modern equipment.
+                  {t("home.mainPart.services.service-1.desc-5")}
                 </p>
               </div>
             </div>
@@ -102,22 +85,22 @@ const Home = () => {
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-blue-700 mb-3">
-                  Address storage using modern racking equipment
+                  {t("home.mainPart.services.service-2.title")}
                 </h3>
+
                 <p className="text-gray-600 text-sm mb-4">
-                  We offer targeted warehousing using multi-tier shelving
-                  systems. This approach ensures quick access to each item and
-                  maximum efficiency of warehouse space.
+                  {t("home.mainPart.services.service-2.desc-1")}
                 </p>
+
                 <div className="mt-4">
                   <p className="font-semibold text-gray-700 mb-2">
-                    ✓ Advantages
+                    {t("home.mainPart.services.service-2.advantages-title")}
                   </p>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Multi-level metal shelving</li>
-                    <li>• Party delineation and space optimization</li>
-                    <li>• Possibility of piece and pallet accounting</li>
-                    <li>• Accounting by expiration dates and series</li>
+                    <li>• {t("home.mainPart.services.service-2.adv-1")}</li>
+                    <li>• {t("home.mainPart.services.service-2.adv-2")}</li>
+                    <li>• {t("home.mainPart.services.service-2.adv-3")}</li>
+                    <li>• {t("home.mainPart.services.service-2.adv-4")}</li>
                   </ul>
                 </div>
               </div>
@@ -134,23 +117,22 @@ const Home = () => {
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-blue-700 mb-3">
-                  Mechanized docking system
+                  {t("home.mainPart.services.service-3.title")}
                 </h3>
+
                 <p className="text-gray-600 text-sm mb-4">
-                  We organize cross-docking—the rapid transfer of goods from
-                  incoming to outgoing shipments without long-term storage.
+                  {t("home.mainPart.services.service-3.desc-1")}
                 </p>
+
                 <div className="mt-4">
                   <p className="font-semibold text-gray-700 mb-2">
-                    ✓ Features of our system
+                    {t("home.mainPart.services.service-3.features-title")}
                   </p>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Mechanized and manual cargo handling</li>
-                    <li>
-                      • Movement between zones without intermediate storage
-                    </li>
-                    <li>• Processing of consignments within 24 hours</li>
-                    <li>• Minimizing transport downtime and reducing costs</li>
+                    <li>• {t("home.mainPart.services.service-3.feat-1")}</li>
+                    <li>• {t("home.mainPart.services.service-3.feat-2")}</li>
+                    <li>• {t("home.mainPart.services.service-3.feat-3")}</li>
+                    <li>• {t("home.mainPart.services.service-3.feat-4")}</li>
                   </ul>
                 </div>
               </div>
@@ -167,29 +149,24 @@ const Home = () => {
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-blue-700 mb-3">
-                  Packaging, sorting, rejection
+                  {t("home.mainPart.services.service-4.title")}
                 </h3>
+
                 <p className="text-gray-600 text-sm mb-4">
-                  We provide a full range of services for packaging, sorting,
-                  and culling goods.
+                  {t("home.mainPart.services.service-4.desc-1")}
                 </p>
                 <p className="text-gray-600 text-sm mb-4">
-                  Our specialists ensure visual inspection, assembly, and
-                  preparation of products for shipment.
+                  {t("home.mainPart.services.service-4.desc-2")}
                 </p>
+
                 <div className="mt-4">
                   <p className="font-semibold text-gray-700 mb-2">
-                    ⚙ Includes:
+                    {t("home.mainPart.services.service-4.includes-title")}
                   </p>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>
-                      • Checking the integrity, markings and quality of
-                      packaging
-                    </li>
-                    <li>• Sorting products manually and using machinery</li>
-                    <li>
-                      • Identification and removal of defective or expired goods
-                    </li>
+                    <li>• {t("home.mainPart.services.service-4.inc-1")}</li>
+                    <li>• {t("home.mainPart.services.service-4.inc-2")}</li>
+                    <li>• {t("home.mainPart.services.service-4.inc-3")}</li>
                   </ul>
                 </div>
               </div>
@@ -214,26 +191,37 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
-              Why Choose Kazan Warehouse?
+              {t("home.mainPart.advantages.title")}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Industry-leading warehouse solutions backed by years of experience
+              {t("home.mainPart.advantages.subtitle")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-card p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
+            {features.map((feature) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={feature.key}
+                  className="bg-card p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {t(
+                      `home.mainPart.advantages.features.${feature.key}.title`
+                    )}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {t(
+                      `home.mainPart.advantages.features.${feature.key}.description`
+                    )}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -242,14 +230,14 @@ const Home = () => {
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Ready to Optimize Your Supply Chain?
+            {t("home.mainPart.cta.title")}
           </h2>
           <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
-            Let's discuss how our warehouse solutions can benefit your business
+            {t("home.mainPart.cta.subtitle")}
           </p>
           <Link to="/contact">
             <Button size="lg" variant="secondary">
-              Get in Touch
+              {t("home.mainPart.cta.button")}
             </Button>
           </Link>
         </div>

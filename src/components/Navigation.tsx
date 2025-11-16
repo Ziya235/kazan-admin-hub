@@ -4,9 +4,12 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import logo from "@/assets/Logo.webp";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {t} = useTranslation()
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -17,7 +20,7 @@ const Navigation = () => {
             className="flex items-center gap-2 text-xl font-bold text-primary"
           >
             <img src={logo} alt="" width="36px" height="36px" />
-            Kazan Warehouse
+             {t("navigation.warehouse")}
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -27,14 +30,21 @@ const Navigation = () => {
               className="text-foreground hover:text-primary transition-colors"
               activeClassName="text-primary font-semibold"
             >
-              Home
+              {t("navigation.home")}
             </NavLink>
             <NavLink
               to="/services"
               className="text-foreground hover:text-primary transition-colors"
               activeClassName="text-primary font-semibold"
             >
-              Services
+              {t("navigation.services")}
+            </NavLink>
+            <NavLink
+              to="/gallery"
+              className="text-foreground hover:text-primary transition-colors"
+              activeClassName="text-primary font-semibold"
+            >
+              {t("navigation.gallery")}
             </NavLink>
 
             <NavLink
@@ -42,23 +52,24 @@ const Navigation = () => {
               className="text-foreground hover:text-primary transition-colors"
               activeClassName="text-primary font-semibold"
             >
-              About
+              {t("navigation.about")}
             </NavLink>
             <NavLink
               to="/contact"
               className="text-foreground hover:text-primary transition-colors"
               activeClassName="text-primary font-semibold"
             >
-              Contact
+              {t("navigation.contact")}
             </NavLink>
+            <LanguageSwitcher />
+
             <NavLink to="/admin">
               <Button variant="default" size="sm">
-                Admin
+                {t("navigation.admin")}
               </Button>
             </NavLink>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -72,7 +83,6 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-3">
@@ -82,7 +92,7 @@ const Navigation = () => {
                 activeClassName="text-primary bg-muted font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
+                {t("navigation.home")}
               </NavLink>
               <NavLink
                 to="/services"
@@ -90,7 +100,14 @@ const Navigation = () => {
                 activeClassName="text-primary bg-muted font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Services
+                {t("navigation.services")}
+              </NavLink>
+              <NavLink
+                to="/gallery"
+                className="text-foreground hover:text-primary transition-colors"
+                activeClassName="text-primary font-semibold"
+              >
+                {t("navigation.gallery")}
               </NavLink>
               <NavLink
                 to="/about"
@@ -98,7 +115,7 @@ const Navigation = () => {
                 activeClassName="text-primary bg-muted font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                {t("navigation.about")}
               </NavLink>
               <NavLink
                 to="/contact"
@@ -106,11 +123,11 @@ const Navigation = () => {
                 activeClassName="text-primary bg-muted font-semibold"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact
+                {t("navigation.contact")}
               </NavLink>
               <NavLink to="/admin" onClick={() => setIsMenuOpen(false)}>
                 <Button variant="default" size="sm" className="w-full">
-                  Admin
+                  {t("navigation.admin")}
                 </Button>
               </NavLink>
             </div>

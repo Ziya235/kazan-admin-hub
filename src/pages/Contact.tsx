@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -39,6 +40,8 @@ const Contact = () => {
     window.open(`https://t.me/${telegramUsername}`, "_blank");
   };
 
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -46,9 +49,11 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="pt-36 pb-24 bg-gradient-to-b from-primary/10 to-background">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            {t("contact.title")}
+          </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get in touch with our team for inquiries about our services
+            {t("contact.subtitle")}
           </p>
         </div>
       </section>
@@ -60,50 +65,77 @@ const Contact = () => {
             {/* Contact Form */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Send us a message</CardTitle>
+                <CardTitle className="text-2xl">
+                  {t("contact.form.title")}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name"> Name</Label>
-                    <Input id="name" placeholder="John " required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Surname</Label>
-                    <Input id="name" placeholder="Doe" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="name">
+                      {t("contact.form.fields.name.label")}
+                    </Label>
                     <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@example.com"
+                      id="name"
+                      placeholder={t("contact.form.fields.name.placeholder")}
                       required
                     />
                   </div>
+
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
+                    <Label htmlFor="surname">
+                      {t("contact.form.fields.surname.label")}
+                    </Label>
+                    <Input
+                      id="surname"
+                      placeholder={t("contact.form.fields.surname.placeholder")}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="email">
+                      {t("contact.form.fields.email.label")}
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder={t("contact.form.fields.email.placeholder")}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">
+                      {t("contact.form.fields.phone.label")}
+                    </Label>
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="+7 (XXX) XXX-XX-XX"
+                      placeholder={t("contact.form.fields.phone.placeholder")}
                     />
                   </div>
+
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">
+                      {t("contact.form.fields.message.label")}
+                    </Label>
                     <Textarea
                       id="message"
-                      placeholder="Tell us about your warehouse needs..."
+                      placeholder={t("contact.form.fields.message.placeholder")}
                       rows={10}
                       required
                     />
                   </div>
+
                   <Button
                     type="submit"
                     className="w-full"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting
+                      ? t("contact.form.submit.sending")
+                      : t("contact.form.submit.default")}
                   </Button>
                 </form>
               </CardContent>
@@ -119,15 +151,13 @@ const Contact = () => {
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                         <MapPin className="w-6 h-6 text-primary" />
                       </div>
-                      <h3 className="font-semibold">Address</h3>
+                      <h3 className="font-semibold">{t("contact.adress")}</h3>
                       <a
                         target="_blank"
                         href="https://yandex.az/maps/?ll=52.492509%2C55.994747&mode=routes&rtext=~55.892678%2C48.968021&rtt=auto&ruri=~&z=6.2"
                         className="text-sm text-muted-foreground"
                       >
-                        📍 Republic of Tatarstan, Pestrechinsky municipal
-                        district, Shalinskoye rural settlement, Industrial Park
-                        M7 Shali, land plot 1.
+                        📍 {t("contact.place")}
                       </a>
                     </div>
                   </CardContent>
@@ -139,7 +169,7 @@ const Contact = () => {
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                         <Phone className="w-6 h-6 text-primary" />
                       </div>
-                      <h3 className="font-semibold">Phone</h3>
+                      <h3 className="font-semibold">{t("contact.phone")}</h3>
 
                       <a
                         href="tel:+79172212144"
@@ -157,7 +187,7 @@ const Contact = () => {
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                         <Mail className="w-6 h-6 text-primary" />
                       </div>
-                      <h3 className="font-semibold">Email</h3>
+                      <h3 className="font-semibold">{t("contact.email")}</h3>
 
                       <a
                         href="mailto:info@kazanwarehouse.com"
