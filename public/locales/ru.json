@@ -173,5 +173,22 @@
       "email": "info@kazanwarehouse.com"
     },
     "copyright": "&copy; {{year}} Склад Казань. Все права защищены."
-  }
+  },
+  "admin": {
+    "title": "Панель администратора",
+    "logout": "Выйти",
+    "description": "Описание",
+    "descriptionPlaceholder": "Опишите услугу...",
+    "serviceTitle": "Название услуги",
+    "serviceTitlePlaceholder": "например, Решения для холодного хранения",
+    "serviceImage": "Изображение услуги",
+    "addService": "Добавить услугу",
+    "uploadingImage": "Загрузка изображения...",
+    "adding": "Добавление...",
+    "errors": {
+      "titleRequired": "Название услуги обязательно",
+      "descriptionRequired": "Описание обязательно",
+      "imageRequired": "Изображение услуги обязательно"
+    }
+  } 
 }

@@ -11,9 +11,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Plus, Trash2 } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
 const Admin = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [user, setUser] = useState<any>(null);
@@ -187,15 +189,15 @@ const Admin = () => {
     const newErrors: typeof errors = {};
 
     if (!newService.title.trim()) {
-      newErrors.title = "Service title is required";
+      newErrors.title = t("admin.errors.titleRequired");
     }
 
     if (!newService.description.trim()) {
-      newErrors.description = "Description is required";
+      newErrors.description = t("admin.errors.descriptionRequired");
     }
 
     if (!imageFile) {
-      newErrors.image_url = "Service image is required";
+      newErrors.image_url = t("admin.errors.imageRequired");
     }
 
     setErrors(newErrors);
@@ -226,9 +228,9 @@ const Admin = () => {
       <div className="flex-1 pt-24 pb-12">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-4xl font-bold">Admin Dashboard</h1>
+            <h1 className="text-4xl font-bold">{t("admin.title")} </h1>
             <Button variant="outline" onClick={handleLogout}>
-              Logout
+              {t("admin.logout")} 
             </Button>
           </div>
 
@@ -237,13 +239,13 @@ const Admin = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Plus className="w-5 h-5" />
-                Add New Service
+                {t("admin.addService")} 
               </CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleAddService} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="title">Service Title *</Label>
+                  <Label htmlFor="title">{t("admin.serviceTitle")} *</Label>
                   <Input
                     id="title"
                     value={newService.title}
@@ -251,7 +253,7 @@ const Admin = () => {
                       setNewService({ ...newService, title: e.target.value });
                       setErrors({ ...errors, title: undefined });
                     }}
-                    placeholder="e.g., Cold Storage Solutions"
+                    placeholder={t("admin.serviceTitlePlaceholder")}
                   />
                   {errors.title && (
                     <p className="text-red-500 text-sm">{errors.title}</p>
@@ -259,7 +261,9 @@ const Admin = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description">Description *</Label>
+                  <Label htmlFor="description">
+                    {t("admin.description")} *
+                  </Label>
                   <Textarea
                     id="description"
                     value={newService.description}
@@ -270,7 +274,7 @@ const Admin = () => {
                       });
                       setErrors({ ...errors, description: undefined });
                     }}
-                    placeholder="Describe the service..."
+                    placeholder={t("admin.descriptionPlaceholder")}
                     rows={4}
                   />
                   {errors.description && (
@@ -279,7 +283,7 @@ const Admin = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="image">Service Image *</Label>
+                  <Label htmlFor="image">{t("admin.serviceImage")} *</Label>
                   <Input
                     id="image"
                     type="file"
@@ -292,13 +296,13 @@ const Admin = () => {
                   />
                   {imageFile && (
                     <p className="text-sm text-muted-foreground">
-                      Selected: {imageFile.name}
+                      Selec ted: {imageFile.name}
                     </p>
                   )}
                   {errors.image_url && (
                     <p className="text-red-500 text-sm">{errors.image_url}</p>
                   )}
-                </div>  
+                </div>
 
                 <Button
                   type="submit"
@@ -306,10 +310,10 @@ const Admin = () => {
                   className="w-full"
                 >
                   {uploadingImage
-                    ? "Uploading Image..."
+                    ? t("admin.uploadingImage")
                     : addServiceMutation.isPending
-                    ? "Adding..."
-                    : "Add Service"}
+                    ? t("admin.adding")
+                    : t("admin.addService")}
                 </Button>
               </form>
             </CardContent>
