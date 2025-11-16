@@ -19,6 +19,12 @@ const Admin = () => {
   const [user, setUser] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [errors, setErrors] = useState<{
+    title?: string;
+    description?: string;
+    image_url?: string;
+  }>({});
+
   const [newService, setNewService] = useState({
     title: "",
     description: "",
@@ -33,8 +39,10 @@ const Admin = () => {
 
   const checkUser = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
       if (!user) {
         navigate("/admin/login");
         return;
@@ -82,18 +90,20 @@ const Admin = () => {
   });
 
   const addServiceMutation = useMutation({
-    mutationFn: async (service: typeof newService & { imageFile?: File | null }) => {
+    mutationFn: async (
+      service: typeof newService & { imageFile?: File | null }
+    ) => {
       let imageUrl = service.image_url;
 
       // Upload image if file is provided
       if (service.imageFile) {
         setUploadingImage(true);
-        const fileExt = service.imageFile.name.split('.').pop();
+        const fileExt = service.imageFile.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
         const filePath = `${fileName}`;
 
         const { error: uploadError } = await supabase.storage
-          .from('service-images')
+          .from("service-images")
           .upload(filePath, service.imageFile);
 
         if (uploadError) {
@@ -101,20 +111,25 @@ const Admin = () => {
           throw uploadError;
         }
 
-        const { data: { publicUrl } } = supabase.storage
-          .from('service-images')
-          .getPublicUrl(filePath);
+        const {
+          data: { publicUrl },
+        } = supabase.storage.from("service-images").getPublicUrl(filePath);
 
         imageUrl = publicUrl;
         setUploadingImage(false);
       }
 
-      const { data, error } = await supabase.from("services").insert([{
-        title: service.title,
-        description: service.description,
-        image_url: imageUrl,
-      }]).select();
-      
+      const { data, error } = await supabase
+        .from("services")
+        .insert([
+          {
+            title: service.title,
+            description: service.description,
+            image_url: imageUrl,
+          },
+        ])
+        .select();
+
       if (error) throw error;
       return data;
     },
@@ -168,14 +183,27 @@ const Admin = () => {
 
   const handleAddService = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newService.title || !newService.description) {
-      toast({
-        title: "Error",
-        description: "Please fill in all required fields",
-        variant: "destructive",
-      });
-      return;
+
+    const newErrors: typeof errors = {};
+
+    if (!newService.title.trim()) {
+      newErrors.title = "Service title is required";
     }
+
+    if (!newService.description.trim()) {
+      newErrors.description = "Description is required";
+    }
+
+    if (!imageFile) {
+      newErrors.image_url = "Service image is required";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      return; // Stop submission if errors exist
+    }
+
     addServiceMutation.mutate({ ...newService, imageFile });
   };
 
@@ -219,37 +247,47 @@ const Admin = () => {
                   <Input
                     id="title"
                     value={newService.title}
-                    onChange={(e) =>
-                      setNewService({ ...newService, title: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setNewService({ ...newService, title: e.target.value });
+                      setErrors({ ...errors, title: undefined });
+                    }}
                     placeholder="e.g., Cold Storage Solutions"
-                    required
                   />
+                  {errors.title && (
+                    <p className="text-red-500 text-sm">{errors.title}</p>
+                  )}
                 </div>
+
                 <div className="space-y-2">
                   <Label htmlFor="description">Description *</Label>
                   <Textarea
                     id="description"
                     value={newService.description}
-                    onChange={(e) =>
-                      setNewService({ ...newService, description: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setNewService({
+                        ...newService,
+                        description: e.target.value,
+                      });
+                      setErrors({ ...errors, description: undefined });
+                    }}
                     placeholder="Describe the service..."
                     rows={4}
-                    required
                   />
+                  {errors.description && (
+                    <p className="text-red-500 text-sm">{errors.description}</p>
+                  )}
                 </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="image">Service Image</Label>
+                  <Label htmlFor="image">Service Image *</Label>
                   <Input
                     id="image"
                     type="file"
                     accept="image/*"
                     onChange={(e) => {
                       const file = e.target.files?.[0];
-                      if (file) {
-                        setImageFile(file);
-                      }
+                      if (file) setImageFile(file);
+                      setErrors({ ...errors, image_url: undefined });
                     }}
                   />
                   {imageFile && (
@@ -257,13 +295,21 @@ const Admin = () => {
                       Selected: {imageFile.name}
                     </p>
                   )}
-                </div>
+                  {errors.image_url && (
+                    <p className="text-red-500 text-sm">{errors.image_url}</p>
+                  )}
+                </div>  
+
                 <Button
                   type="submit"
                   disabled={addServiceMutation.isPending || uploadingImage}
                   className="w-full"
                 >
-                  {uploadingImage ? "Uploading Image..." : addServiceMutation.isPending ? "Adding..." : "Add Service"}
+                  {uploadingImage
+                    ? "Uploading Image..."
+                    : addServiceMutation.isPending
+                    ? "Adding..."
+                    : "Add Service"}
                 </Button>
               </form>
             </CardContent>
@@ -294,8 +340,12 @@ const Admin = () => {
                         />
                       )}
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                        <p className="text-muted-foreground">{service.description}</p>
+                        <h3 className="text-xl font-semibold mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {service.description}
+                        </p>
                       </div>
                       <Button
                         variant="destructive"
