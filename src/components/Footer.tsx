@@ -25,7 +25,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">{t("footer.quickLinks.title")}</h3>
+            <h3 className="font-semibold mb-4">
+              {t("footer.quickLinks.title")}
+            </h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="hover:text-accent transition-colors">
@@ -33,17 +35,34 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-accent transition-colors">
+                <Link
+                  to="/services"
+                  className="hover:text-accent transition-colors"
+                >
                   {t("footer.quickLinks.services")}
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-accent transition-colors">
+                <Link
+                  to="/gallery"
+                  className="hover:text-accent transition-colors"
+                >
+                  {t("navigation.gallery")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-accent transition-colors"
+                >
                   {t("footer.quickLinks.about")}
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-accent transition-colors">
+                <Link
+                  to="/contact"
+                  className="hover:text-accent transition-colors"
+                >
                   {t("footer.quickLinks.contact")}
                 </Link>
               </li>
