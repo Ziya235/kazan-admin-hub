@@ -6,7 +6,7 @@
     "about": "О нас",
     "contact": "Контакты",
     "admin": "Админ",
-    "warehouse": "Склад Казань"
+    "warehouse": "Казань Склад "
   },
   "home": {
     "hero": {
@@ -174,7 +174,7 @@
     },
     "copyright": "&copy; {{year}} Склад Казань. Все права защищены."
   },
-  "admin": {
+  "admin": {  
     "title": "Панель администратора",
     "logout": "Выйти",
     "description": "Описание",
