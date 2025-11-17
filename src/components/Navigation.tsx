@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -20,7 +20,7 @@ const Navigation = () => {
             className="flex items-center gap-2 text-xl font-bold text-primary"
           >
             <img src={logo} alt="" width="36px" height="36px" />
-             {t("navigation.warehouse")}
+            {t("navigation.warehouse")}
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -70,17 +70,21 @@ const Navigation = () => {
             </NavLink>
           </div>
 
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          <div className="flex md:hidden p-2">
+            <LanguageSwitcher />
+
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {isMenuOpen && (
@@ -104,8 +108,9 @@ const Navigation = () => {
               </NavLink>
               <NavLink
                 to="/gallery"
-                className="text-foreground hover:text-primary transition-colors"
-                activeClassName="text-primary font-semibold"
+                className="px-3 py-2 text-foreground hover:text-primary hover:bg-muted rounded transition-colors"
+                activeClassName="text-primary bg-muted font-semibold"
+                onClick={() => setIsMenuOpen(false)}
               >
                 {t("navigation.gallery")}
               </NavLink>
@@ -124,7 +129,7 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t("navigation.contact")}
-              </NavLink>
+              </NavLink>         
               <NavLink to="/admin" onClick={() => setIsMenuOpen(false)}>
                 <Button variant="default" size="sm" className="w-full">
                   {t("navigation.admin")}
