@@ -230,7 +230,7 @@ const Admin = () => {
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-4xl font-bold">{t("admin.title")} </h1>
             <Button variant="outline" onClick={handleLogout}>
-              {t("admin.logout")} 
+              {t("admin.logout")}
             </Button>
           </div>
 
@@ -239,7 +239,7 @@ const Admin = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Plus className="w-5 h-5" />
-                {t("admin.addService")} 
+                {t("admin.addService")}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -334,13 +334,19 @@ const Admin = () => {
                   {services.map((service) => (
                     <div
                       key={service.id}
-                      className="flex items-start gap-4 p-4 border border-border rounded-lg"
+                      className="
+                          flex flex-col sm:flex-row
+                          items-start gap-4 p-4 
+                          border border-border rounded-lg
+                        "
                     >
                       {service.image_url && (
                         <img
                           src={service.image_url}
                           alt={service.title}
-                          className="w-24 h-24 object-cover rounded"
+                          className="w-32 h-32       
+                              sm:w-24 sm:h-24 
+                              object-cover rounded"
                         />
                       )}
                       <div className="flex-1">
